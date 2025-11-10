@@ -1,0 +1,39 @@
+# YouTube Configuration
+youtube:
+  api_key: ""  # We'll get this from .env
+  videos:
+    - "VIDEO_ID_1"  # e.g., "dQw4w9WgXcQ"
+    - "VIDEO_ID_2"
+  channels:
+    - "CHANNEL_ID_1"  # Optional: scrape all videos from channel
+  max_comments: 1000
+  include_replies: true
+  order: "relevance"  # or "time"
+
+# Steam Configuration
+steam:
+  games:
+    - "570"  # Dota 2 - Steam App ID
+    - "730"  # CS:GO
+  review_type: "all"  # "all", "positive", "negative"
+  purchase_type: "all"  # "all", "steam", "non_steam_purchase"
+  language: "english"
+  max_reviews: 1000
+
+# Classifier Configuration
+classifier:
+  model: "distilbert-base-uncased-finetuned-sst-2-english"
+  batch_size: 16
+  negative_threshold: 0.4
+  positive_threshold: 0.6
+
+# Summarizer Configuration
+summarizer:
+  method: "extractive"
+  sentence_count: 5
+  min_word_count: 10
+
+# Storage Configuration
+storage:
+  type: "csv"
+  data_dir: "data"
