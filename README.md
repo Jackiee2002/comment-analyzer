@@ -5,6 +5,7 @@ Automated analysis of user feedback from YouTube and Steam, with a focus on nega
 ## Features
 
 - **Negative Sentiment Classifier**: Automatically identify and analyze negative comments
+- **Text Preprocessing**: Clean and normalize text with advanced preprocessing utilities
 - Sentiment scoring with confidence levels
 - Batch processing for large datasets
 - Detailed statistics and visualizations
@@ -44,13 +45,25 @@ The script will:
 
 ```python
 from src.analysis.sentiment_classifier import NegativeSentimentClassifier
+from src.preprocessing import TextCleaner, TextPreprocessor
 import pandas as pd
 
 # Initialize classifier
 classifier = NegativeSentimentClassifier()
 
-# Load your comments
+# Initialize preprocessor (optional but recommended)
+preprocessor = TextPreprocessor(
+    use_cleaner=True,
+    cleaner_config={
+        'remove_urls': True,
+        'remove_html': True,
+        'lowercase': True
+    }
+)
+
+# Load and preprocess your comments
 df = pd.read_csv('your_comments.csv')
+df = preprocessor.preprocess_dataframe(df, text_column='text')
 
 # Get only negative comments
 negative_comments = classifier.filter_negative_comments(df)
@@ -92,3 +105,46 @@ Negative comments are categorized as:
 - **Highly negative**: Score ≥ 0.8
 - **Moderately negative**: Score 0.6-0.8
 - **Mildly negative**: Score < 0.6
+
+## Preprocessing
+
+Clean and normalize text before analysis:
+
+```python
+from src.preprocessing import TextCleaner, TextPreprocessor
+
+# Basic text cleaning
+cleaner = TextCleaner(
+    remove_urls=True,
+    remove_html=True,
+    remove_emails=True,
+    lowercase=True
+)
+clean_text = cleaner.clean("Check out https://example.com!")
+
+# Advanced preprocessing
+preprocessor = TextPreprocessor()
+processed = preprocessor.preprocess(
+    "I'm loving this product!!!",
+    remove_stopwords=True,
+    expand_contractions=True
+)
+
+# Process entire DataFrame
+df = preprocessor.preprocess_dataframe(
+    df, 
+    text_column='comment',
+    remove_stopwords=True
+)
+```
+
+### Preprocessing Features
+
+- **Text Cleaning**: Remove URLs, HTML, emails, mentions, hashtags
+- **Normalization**: Lowercase, whitespace, character repetitions
+- **Tokenization**: Word-level tokenization
+- **Stopword Removal**: Built-in English stopwords with custom options
+- **Contraction Expansion**: "I'm" → "I am"
+- **Emoji Removal**: Strip emoji characters
+- **Keyword Extraction**: Extract most frequent meaningful words
+- **Batch Processing**: Process DataFrames efficiently
