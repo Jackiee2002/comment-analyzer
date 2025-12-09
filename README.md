@@ -4,14 +4,18 @@ Automated analysis of user feedback from YouTube and Steam, with a focus on nega
 
 ## Features
 
+- 🤖 **Fully Automated Pipeline**: Scrape → Preprocess → Classify in one command
 - **Negative Sentiment Classifier**: Automatically identify and analyze negative comments
+- **Multi-Platform Scraping**: YouTube comments and Steam reviews
 - **Text Preprocessing**: Clean and normalize text with advanced preprocessing utilities
 - Sentiment scoring with confidence levels
 - Batch processing for large datasets
 - Detailed statistics and visualizations
 - Export filtered negative comments
 
-## Setup
+## Quick Start (3 Steps)
+
+### 1. Install Dependencies
 
 ```bash
 python -m venv venv
@@ -19,17 +23,93 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Usage
-
-### Quick Start - Classify Negative Comments
-
-Run the classifier with example data:
+### 2. Run Setup
 
 ```bash
-python classify_negative.py
+python setup.py
 ```
 
-Or with your own CSV file:
+This will check your configuration and create necessary directories.
+
+### 3. Configure (if needed)
+
+**Get YouTube API Key:**
+1. Go to [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+2. Create a new project (or select existing)
+3. Enable YouTube Data API v3
+4. Create credentials (API Key)
+5. Add to `.env` file:
+   ```
+   YOUTUBE_API_KEY=your_actual_api_key_here
+   ```
+
+**Configure Sources** in `config.yaml`:
+
+```yaml
+youtube:
+  videos:
+    - "dQw4w9WgXcQ"  # Add your YouTube video IDs here
+  max_comments: 1000
+
+steam:
+  games:
+    - "730"  # Add Steam App IDs (e.g., 730 = CS2)
+  max_reviews: 1000
+```
+
+**Find YouTube Video ID:** From URL `https://youtube.com/watch?v=VIDEO_ID`  
+**Find Steam App ID:** From URL `https://store.steampowered.com/app/APP_ID/`
+
+### 4. Test the Pipeline (Optional)
+
+Test with sample data before using real API keys:
+
+```bash
+python test_automation.py
+```
+
+This runs the full pipeline with mock data to verify everything works.
+
+## Usage
+
+### 🚀 Fully Automated Analysis (Recommended)
+
+**Option 1: Using convenience launcher (easiest)**
+
+Windows:
+```bash
+run_analysis.bat
+```
+
+Linux/Mac:
+```bash
+chmod +x run_analysis.sh
+./run_analysis.sh
+```
+
+**Option 2: Direct Python command**
+
+```bash
+python run_automated_analysis.py
+```
+
+**What it does:**
+1. ✅ Scrapes comments from configured YouTube videos
+2. ✅ Scrapes reviews from configured Steam games
+3. ✅ Preprocesses all text data (removes URLs, HTML, etc.)
+4. ✅ Classifies sentiment using AI
+5. ✅ Filters negative comments
+6. ✅ Shows top negative comments with scores
+7. ✅ Saves all results with timestamps
+
+**Output files** (in `results/` folder):
+- `all_comments_classified_YYYYMMDD_HHMMSS.csv` - All comments with sentiment scores
+- `negative_comments_YYYYMMDD_HHMMSS.csv` - Only negative comments
+- `highly_negative_comments_YYYYMMDD_HHMMSS.csv` - Highly negative (score ≥ 0.8)
+
+### Manual Classification (Existing Data)
+
+If you already have comments in a CSV file:
 
 ```bash
 python classify_negative.py data/raw/your_comments.csv
@@ -40,6 +120,14 @@ The script will:
 2. Filter out only negative comments
 3. Show statistics and top negative comments
 4. Save results to `results/negative_comments.csv`
+
+## 📚 Documentation
+
+- **[QUICK_REFERENCE.md](QUICK_REFERENCE.md)** - Quick command reference card
+- **[AUTOMATION_GUIDE.md](AUTOMATION_GUIDE.md)** - Detailed workflow and troubleshooting
+- **[notebooks/](notebooks/)** - Interactive Jupyter notebooks for analysis
+
+## Advanced Usage
 
 ### Using in Code
 

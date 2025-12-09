@@ -2,8 +2,8 @@
 youtube:
   api_key: ""  # We'll get this from .env
   videos:
-    - "VIDEO_ID_1"  # e.g., "dQw4w9WgXcQ"
-    - "VIDEO_ID_2"
+    - "0VoPYvl-e9A"  # e.g., "dQw4w9WgXcQ"
+    - "xMJ45IzhSzg"
   channels:
     - "CHANNEL_ID_1"  # Optional: scrape all videos from channel
   max_comments: 1000

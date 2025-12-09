@@ -203,7 +203,7 @@ if __name__ == "__main__":
     scraper = YouTubeScraper(api_key)
     
     # Example: Scrape comments from a video
-    video_id = "dQw4w9WgXcQ"  # Replace with actual video ID
+    video_id = "0VoPYvl-e9A"  # Replace with actual video ID
     comments = scraper.scrape_comments(video_id, max_comments=100, include_replies=True)
     
     # Save to CSV
