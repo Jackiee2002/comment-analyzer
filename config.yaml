@@ -2,8 +2,8 @@
 youtube:
   api_key: ""  # We'll get this from .env
   videos:
-    - "0VoPYvl-e9A"  # e.g., "dQw4w9WgXcQ"
-    - "xMJ45IzhSzg"
+    - "ycy30LIbq4w"  # video lost in japan
+    - "8bMh8azh3CY" # Mr Beast video
   channels:
     - "CHANNEL_ID_1"  # Optional: scrape all videos from channel
   max_comments: 1000

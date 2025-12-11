@@ -1,0 +1,144 @@
+# ==========================================
+# CRITICAL - Secrets & API Keys
+# ==========================================
+.env
+*.env
+.env.*
+config/secrets.json
+secrets/
+
+# ==========================================
+# Python
+# ==========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.pyc
+*.pyo
+
+# Distribution / Packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==========================================
+# Virtual Environments
+# ==========================================
+venv/
+ENV/
+env/
+.venv/
+
+# ==========================================
+# Data Files (User Privacy)
+# ==========================================
+# Raw scraped data
+data/raw/*.json
+data/raw/*.csv
+data/raw/*.xlsx
+
+# Processed data
+data/processed/
+data/processed/*.json
+data/processed/*.csv
+data/processed/*.xlsx
+
+# Pickled data
+*.pkl
+*.pickle
+
+# ==========================================
+# Results & Outputs
+# ==========================================
+results/*.csv
+results/*.json
+results/*.xlsx
+results/*.txt
+
+# Keep example results (uncomment if you want to share samples)
+# !results/example_*.csv
+
+# ==========================================
+# ML Models (Too Large for GitHub)
+# ==========================================
+data/models/*.bin
+data/models/*.pt
+data/models/*.pth
+data/models/*.h5
+*.bin
+*.h5
+models/
+
+# HuggingFace cache (can be re-downloaded)
+.cache/
+*.safetensors
+
+# ==========================================
+# IDEs & Editors
+# ==========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# ==========================================
+# Operating System
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ==========================================
+# Jupyter Notebooks
+# ==========================================
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# ==========================================
+# Testing & Coverage
+# ==========================================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# ==========================================
+# Logs & Temp Files
+# ==========================================
+*.log
+logs/
+*.tmp
+*.temp
+
+# ==========================================
+# Documentation Builds
+# ==========================================
+docs/_build/
+site/

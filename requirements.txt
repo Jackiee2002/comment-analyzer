@@ -1,36 +1,21 @@
+# Core Dependencies
+pandas>=2.2.0
+pyyaml>=6.0
+python-dotenv>=1.0.0
+
 # Web Scraping
-requests==2.31.0
-beautifulsoup4==4.12.0
-selenium==4.15.0
-
-# YouTube Scraping
-google-api-python-client==2.108.0
-youtube-comment-downloader==0.1.0
-
-# Steam Scraping
-steamreviews==0.9.5
-
-# Data Processing
-pandas==2.1.0
-numpy==1.24.0
+requests>=2.31.0
+google-api-python-client>=2.108.0
 
 # ML/NLP
-transformers==4.35.0
-torch==2.1.0
-scikit-learn==1.3.0
-
-# Summarization
-sumy==0.11.0
-nltk==3.8.1
-
-# Storage
-python-dotenv==1.0.0
+transformers>=4.35.0
+torch>=2.1.0
 
 # Utilities
-pyyaml==6.0
-tqdm==4.66.0
+tqdm>=4.66.0
 
-# Visualization (for notebooks)
-matplotlib==3.7.0
-seaborn==0.12.0
-jupyter==1.0.0
+# Optional: Development/Notebooks (uncomment if needed)
+# jupyter==1.0.0
+# matplotlib==3.7.0
+# seaborn==0.12.0
+# numpy==1.24.0
